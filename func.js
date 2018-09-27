@@ -107,7 +107,7 @@ function visualize_data( data, filter, embed_id, sort, genome ) // cgi-bin from 
 	var json_str = JSON.stringify(json);
 
 	// save json at tmp_json_url
-	req.open('POST', 'https://'+location.hostname+'/cgi-bin/writejson', true);
+	req.open('POST', 'https://egg2.wustl.edu/cgi-bin/writejson', true);
 	req.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 	req.send(json_str);
 }
