@@ -27,7 +27,6 @@
     <script type="text/javascript" src="https://epigenomegateway.wustl.edu/browser/js/hicInterface.js"></script>
     <script type="text/javascript" src="https://epigenomegateway.wustl.edu/browser/js/embed.js"></script>
 
-    <link rel="icon" href="../../favicon.ico">
     <link href="./css/bootstrap.min.css" rel="stylesheet">
     <link href="./css/bootstrap-theme.min.css" rel="stylesheet">
     <link href="theme.css" rel="stylesheet">
@@ -44,13 +43,6 @@
     <script src="./data.js"></script>
     <script src="./func.js"></script>
 
-    <script>
-      $( function(){
-        $("#header").load("header.html");
-        $("#footer").load("footer.html");
-      });
-    </script>
-
     <title>HIPO016 Epigenomics</title>
   </head>
 
@@ -63,11 +55,11 @@
           <h1>Histone ChIP-seq</h1>
             <h3>Raw signals</h3>
 	    <div>
-                <select class="ddl_eid" id="ddl_eid_rep_hist_bw" onchange="onchange_ddl_eid_rep_hist_align(this);">
+                <select class="ddl_eid" id="ddl_eid_rep_hist_bw" onchange="onchange_ddl_eid_rep_hist_bw(this);">
                   <option>Choose an epigenome</option>
                 </select>
                 or
-                <select class="ddl_assay" id="ddl_assay_rep_hist_bw" onchange="onchange_ddl_assay_rep_hist_align(this);">
+                <select class="ddl_assay" id="ddl_assay_rep_hist_bw" onchange="onchange_ddl_assay_rep_hist_bw(this);">
                   <option>Choose an assay</option>
                 </select>
                   <br><input type="checkbox" id="chkbox_new_page_bw"> Open in a new page (deactivate pop-up blockers)</input>

@@ -782,14 +782,14 @@ function init_rep_hist()
 	populate_dropdown_by_assay("ddl_assay_rep_hist_bw",[data_rep_hist_bw]);
 }
 
-function onchange_ddl_assay_rep_hist_align(dropdown)
+function onchange_ddl_assay_rep_hist_bw(dropdown)
 {
-	return onchange_dropdown_by_assay(dropdown, [data_rep_hist_align], "ddl_eid_rep_hist_align", "chkbox_new_page_align", "embed_rep_hist_align" );
+	return onchange_dropdown_by_assay(dropdown, [data_rep_hist_bw], "ddl_eid_rep_hist_bw", "chkbox_new_page_bw", "embed_rep_hist_bw" );
 }
 
-function onchange_ddl_eid_rep_hist_align(dropdown)
+function onchange_ddl_eid_rep_hist_bw(dropdown)
 {
-	return onchange_dropdown_by_eid(dropdown, [data_rep_hist_align], "ddl_assay_rep_hist_align", "chkbox_new_page_align", "embed_rep_hist_align" );
+	return onchange_dropdown_by_eid(dropdown, [data_rep_hist_bw], "ddl_assay_rep_hist_bw", "chkbox_new_page_bw", "embed_rep_hist_bw" );
 }
 
 function onchange_ddl_assay_rep_hist_align_uc(dropdown)
