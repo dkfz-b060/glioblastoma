@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-Frame-Options" content="allow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="https://epigenomegateway.wustl.edu/browser/css/style.css" />
+    <script type="text/javascript" src="https://epigenomegateway.wustl.edu/browser/js/jscolor.min.js"></script>
+    <script type="text/javascript" src="https://epigenomegateway.wustl.edu/browser/js/base.js"></script>
+    <script type="text/javascript" src="https://epigenomegateway.wustl.edu/browser/js/session.js"></script>
+    <script type="text/javascript" src="https://epigenomegateway.wustl.edu/browser/js/bev.js"></script>
+    <script type="text/javascript" src="https://epigenomegateway.wustl.edu/browser/js/gsm.js"></script>
+    <script type="text/javascript" src="https://epigenomegateway.wustl.edu/browser/js/session.js"></script>
+    <script type="text/javascript" src="https://epigenomegateway.wustl.edu/browser/js/fileload.js"></script>
+    <script type="text/javascript" src="https://epigenomegateway.wustl.edu/browser/js/scp.js"></script>
+    <script type="text/javascript" src="https://epigenomegateway.wustl.edu/browser/js/geneplot.js"></script>
+    <script type="text/javascript" src="https://epigenomegateway.wustl.edu/browser/js/validhub.js"></script>
+    <script type="text/javascript" src="https://epigenomegateway.wustl.edu/browser/js/circlet.js"></script>
+    <script type="text/javascript" src="https://epigenomegateway.wustl.edu/browser/js/sukn.js"></script>
+    <script type="text/javascript" src="https://epigenomegateway.wustl.edu/browser/js/personality.js"></script>
+    <script type="text/javascript" src="https://epigenomegateway.wustl.edu/browser/js/dataProvider.js"></script>
+    <script type="text/javascript" src="https://epigenomegateway.wustl.edu/browser/js/hicInterface.js"></script>
+    <script type="text/javascript" src="https://epigenomegateway.wustl.edu/browser/js/embed.js"></script>
+
+    <link rel="icon" href="../../favicon.ico">
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="theme.css" rel="stylesheet">
+
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="./data.js"></script>
+    <script src="./func.js"></script>
+
+    <script>
+      $( function(){
+        $("#header").load("header.html");
+        $("#footer").load("footer.html");
+      });
+    </script>
+
+    <title>HIPO016 Epigenomics</title>
+  </head>
+
+
+  <body role="document">
+    <div id="header"></div>
+    <div class="container-fluid theme-showcase" role="main" id="body">
+      <div class="page-header">
+          <a name="ChipSeq_DNaseSeq"></a>
+          <h1>Histone ChIP-seq</h1>
+            <h3>Raw signals</h3>
+	    <div>
+                <select class="ddl_eid" id="ddl_eid_rep_hist_bw" onchange="onchange_ddl_eid_rep_hist_align(this);">
+                  <option>Choose an epigenome</option>
+                </select>
+                or
+                <select class="ddl_assay" id="ddl_assay_rep_hist_bw" onchange="onchange_ddl_assay_rep_hist_align(this);">
+                  <option>Choose an assay</option>
+                </select>
+                  <br><input type="checkbox" id="chkbox_new_page_bw"> Open in a new page (deactivate pop-up blockers)</input>
+                <br><div id=embed_rep_hist_bw style="margin:20px;border:solid 2px green;display:none;" ></div>
+        	</div>
+            <h3>Peak calling</h3>
+  	    <div>
+		<ul>
+              <li>Narrow peak</li>
+		<select class="ddl_eid" id="ddl_eid_rep_hist_npeak" onchange="onchange_ddl_eid_rep_hist_npeak(this);">
+                  <option>Choose an epigenome</option>
+                </select>
+                or
+                <select class="ddl_assay" id="ddl_assay_rep_hist_npeak" onchange="onchange_ddl_assay_rep_hist_npeak(this);">
+                  <option>Choose an assay</option>
+                </select>
+                <br><input type="checkbox" id="chkbox_new_page_npeak"> Open in a new page (deactivate pop-up blockers)</input>
+                <br><div id=embed_rep_hist_npeak style="margin:20px;border:solid 2px green;display:none;" ></div>
+        	<li>Broad peak</li>
+                  <select class="ddl_eid" id="ddl_eid_rep_hist_gpeak" onchange="onchange_ddl_eid_rep_hist_gpeak(this);">
+                    <option>Choose an epigenome</option>
+                  </select>
+                  or
+                  <select class="ddl_assay" id="ddl_assay_rep_hist_gpeak" onchange="onchange_ddl_assay_rep_hist_gpeak(this);">
+                    <option>Choose an assay</option>
+                  </select>
+                  <br><input type="checkbox" id="chkbox_new_page_gpeak"> Open in a new page (deactivate pop-up blockers)</input>
+                  <br><div id=embed_rep_hist_gpeak style="margin:20px;border:solid 2px green;display:none;" ></div>
+                </ul> 
+	    </div>
+          <a name="ChipSeq_DNaseSeq"></a>
+          <h1>Chromatin states</h1>
+            <h3>Roadmap 18 states model</h3>
+	    <div>
+                <select class="ddl_eid" id="ddl_eid_rep_hist_align" onchange="onchange_ddl_eid_rep_hist_align(this);">
+                  <option>Choose an epigenome</option>
+                </select>
+                or
+                <select class="ddl_assay" id="ddl_assay_rep_hist_align" onchange="onchange_ddl_assay_rep_hist_align(this);">
+                  <option>Choose an assay</option>
+                </select>
+                  <br><input type="checkbox" id="chkbox_new_page_align"> Open in a new page (deactivate pop-up blockers)</input>
+                <br><div id=embed_rep_hist_align style="margin:20px;border:solid 2px green;display:none;" ></div>
+        	</div>
+              <script>
+                init_rep_hist();
+              </script>
+          </div>
+
+
+    </div> <!-- /container -->
+
+    <div id="footer"></div>
+  </body>
+</html>
+
+
+
+
