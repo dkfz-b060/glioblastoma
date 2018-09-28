@@ -143,7 +143,7 @@ function generate_json( data, filter, sort ) // data is an array of json objects
 		"facet_table" :	[
 			"Sample",
 			"Assay",
-			"Roadmap Category",
+			"Subtype",
 		],
 		"show_terms" : {
 			"Sample": [
@@ -152,8 +152,8 @@ function generate_json( data, filter, sort ) // data is an array of json objects
 			"Assay": [
 				"Assay",
 			],
-			"Roadmap Category": [
-				"Roadmap Category",
+			"Subtype": [
+				"Subtype",
 			],
 		},
 		"type" : "metadata",
@@ -176,11 +176,11 @@ function generate_json( data, filter, sort ) // data is an array of json objects
 					},
 				},
 			},
-			"Roadmap Category" : {
+			"Subtype" : {
 				"terms" : {
 				},
 				"vocabulary" : {
-					"Roadmap Category": {
+					"Subtype": {
 						"Categories" : [],
 					},
 				},
@@ -198,10 +198,10 @@ function generate_json( data, filter, sort ) // data is an array of json objects
 		voc.vocabulary.Sample.Epigenomes.push( order_str );
 
 		var order_str2 = (elem.groupid+20000).toString();
-		var voc2 = facet.vocabulary_set[ "Roadmap Category" ];
+		var voc2 = facet.vocabulary_set[ "Subtype" ];
 
 		voc2.terms[ order_str2 ] =  [ elem.group, "", elem.color ];
-		voc2.vocabulary[ "Roadmap Category" ].Categories.push( order_str2 );
+		voc2.vocabulary[ "Subtype" ].Categories.push( order_str2 );
 	}
 
 	// add assay to facet table
@@ -579,7 +579,7 @@ function generate_json( data, filter, sort ) // data is an array of json objects
 
 				if ( data_elem.eid && data_elem.eid != "" ) { 
 					metadata[ "Sample" ]= epg_json[ data_elem.eid ].order.toString();
-					metadata[ "Roadmap Category" ]= (epg_json[ data_elem.eid ].groupid + 20000).toString();
+					metadata[ "Subtype" ]= (epg_json[ data_elem.eid ].groupid + 20000).toString();
 				}		
 				if ( data_elem.assay && data_elem.assay != "" ) { 
 					metadata[ "Assay" ]=  ( assay_json[ data_elem.assay ].order + 10000).toString(); 
@@ -780,6 +780,11 @@ function init_rep_hist()
 	// consolidated epg
 	populate_dropdown_by_eid(  "ddl_eid_rep_hist_bw", [data_rep_hist_bw]);
 	populate_dropdown_by_assay("ddl_assay_rep_hist_bw",[data_rep_hist_bw]);
+	populate_dropdown_by_eid(  "ddl_eid_rep_hist_bw2", [data_rep_hist_bw2]);
+	/*populate_dropdown_by_eid(  "ddl_eid_rep_hist_npeak"	, [data_rep_hist_npeak]);
+	populate_dropdown_by_assay("ddl_assay_rep_hist_npeak"	, [data_rep_hist_npeak]);
+	populate_dropdown_by_eid(  "ddl_eid_rep_hist_bpeak"	, [data_rep_hist_bpeak]);
+	populate_dropdown_by_assay("ddl_assay_rep_hist_bpeak"	, [data_rep_hist_bpeak]);*/
 }
 
 function onchange_ddl_assay_rep_hist_bw(dropdown)
@@ -792,45 +797,9 @@ function onchange_ddl_eid_rep_hist_bw(dropdown)
 	return onchange_dropdown_by_eid(dropdown, [data_rep_hist_bw], "ddl_assay_rep_hist_bw", "chkbox_new_page_bw", "embed_rep_hist_bw" );
 }
 
-function onchange_ddl_assay_rep_hist_align_uc(dropdown)
+function onchange_ddl_eid_rep_hist_bw2(dropdown)
 {
-	return onchange_dropdown_by_assay(dropdown, [data_rep_hist_align_uc], "ddl_eid_rep_hist_align_uc", "chkbox_new_page_align_uc", "embed_rep_hist_align_uc" );
-}
-
-function onchange_ddl_eid_rep_hist_align_uc(dropdown)
-{
-	return onchange_dropdown_by_eid(dropdown, [data_rep_hist_align_uc], "ddl_assay_rep_hist_align_uc", "chkbox_new_page_align_uc", "embed_rep_hist_align_uc" );
-}
-
-
-function onchange_ddl_assay_rep_hist_align_nosubsample(dropdown)
-{
-	return onchange_dropdown_by_assay(dropdown, [data_rep_hist_align_nosubsample], "ddl_eid_rep_hist_align_nosubsample", "chkbox_new_page_align_nosubsample", "embed_rep_hist_align_nosubsample" );
-}
-
-function onchange_ddl_eid_rep_hist_align_nosubsample(dropdown)
-{
-	return onchange_dropdown_by_eid(dropdown, [data_rep_hist_align_nosubsample], "ddl_assay_rep_hist_align_nosubsample", "chkbox_new_page_align_nosubsample", "embed_rep_hist_align_nosubsample" );
-}
-
-function onchange_ddl_assay_rep_hist_pval(dropdown)
-{
-	return onchange_dropdown_by_assay(dropdown, [data_rep_hist_pval], "ddl_eid_rep_hist_pval", "chkbox_new_page_pval", "embed_rep_hist_pval" );
-}
-
-function onchange_ddl_eid_rep_hist_pval(dropdown)
-{
-	return onchange_dropdown_by_eid(dropdown, [data_rep_hist_pval], "ddl_assay_rep_hist_pval", "chkbox_new_page_pval", "embed_rep_hist_pval" );
-}
-
-function onchange_ddl_assay_rep_hist_fc(dropdown)
-{
-	return onchange_dropdown_by_assay(dropdown, [data_rep_hist_fc], "ddl_eid_rep_hist_fc", "chkbox_new_page_fc", "embed_rep_hist_fc" );
-}
-
-function onchange_ddl_eid_rep_hist_fc(dropdown)
-{
-	return onchange_dropdown_by_eid(dropdown, [data_rep_hist_fc], "ddl_assay_rep_hist_fc", "chkbox_new_page_fc", "embed_rep_hist_fc" );
+	return onchange_dropdown_by_eid(dropdown, [data_rep_hist_bw2], "ddl_assay_rep_hist_bw2", "chkbox_new_page_bw", "embed_rep_hist_bw" );
 }
 
 function onchange_ddl_assay_rep_hist_npeak(dropdown)
@@ -842,7 +811,7 @@ function onchange_ddl_eid_rep_hist_npeak(dropdown)
 {
 	return onchange_dropdown_by_eid(dropdown, [data_rep_hist_npeak], "ddl_assay_rep_hist_npeak", "chkbox_new_page_npeak", "embed_rep_hist_npeak" );
 }
-/*
+
 function onchange_ddl_assay_rep_hist_bpeak(dropdown)
 {
 	return onchange_dropdown_by_assay(dropdown, [data_rep_hist_bpeak], "ddl_eid_rep_hist_bpeak", "chkbox_new_page_bpeak", "embed_rep_hist_bpeak" );
@@ -852,7 +821,7 @@ function onchange_ddl_eid_rep_hist_bpeak(dropdown)
 {
 	return onchange_dropdown_by_eid(dropdown, [data_rep_hist_bpeak], "ddl_assay_rep_hist_bpeak", "chkbox_new_page_bpeak", "embed_rep_hist_bpeak" );
 }
-*/
+
 function onchange_ddl_assay_rep_hist_gpeak(dropdown)
 {
 	return onchange_dropdown_by_assay(dropdown, [data_rep_hist_gpeak], "ddl_eid_rep_hist_gpeak", "chkbox_new_page_gpeak", "embed_rep_hist_gpeak" );
@@ -861,46 +830,6 @@ function onchange_ddl_assay_rep_hist_gpeak(dropdown)
 function onchange_ddl_eid_rep_hist_gpeak(dropdown)
 {
 	return onchange_dropdown_by_eid(dropdown, [data_rep_hist_gpeak], "ddl_assay_rep_hist_gpeak", "chkbox_new_page_gpeak", "embed_rep_hist_gpeak" );
-}
-
-function onchange_ddl_assay_rep_hist_pval_uc(dropdown)
-{
-	return onchange_dropdown_by_assay(dropdown, [data_rep_hist_pval_uc], "ddl_eid_rep_hist_pval_uc", "chkbox_new_page_pval_uc", "embed_rep_hist_pval_uc" );
-}
-
-function onchange_ddl_eid_rep_hist_pval_uc(dropdown)
-{
-	return onchange_dropdown_by_eid(dropdown, [data_rep_hist_pval_uc], "ddl_assay_rep_hist_pval_uc", "chkbox_new_page_pval_uc", "embed_rep_hist_pval_uc" );
-}
-
-function onchange_ddl_assay_rep_hist_fc_uc(dropdown)
-{
-	return onchange_dropdown_by_assay(dropdown, [data_rep_hist_fc_uc], "ddl_eid_rep_hist_fc_uc", "chkbox_new_page_fc_uc", "embed_rep_hist_fc_uc" );
-}
-
-function onchange_ddl_eid_rep_hist_fc_uc(dropdown)
-{
-	return onchange_dropdown_by_eid(dropdown, [data_rep_hist_fc_uc], "ddl_assay_rep_hist_fc_uc", "chkbox_new_page_fc_uc", "embed_rep_hist_fc_uc" );
-}
-
-function onchange_ddl_assay_rep_hist_npeak_uc(dropdown)
-{
-	return onchange_dropdown_by_assay(dropdown, [data_rep_hist_npeak_uc], "ddl_eid_rep_hist_npeak_uc", "chkbox_new_page_npeak_uc", "embed_rep_hist_npeak_uc" );
-}
-
-function onchange_ddl_eid_rep_hist_npeak_uc(dropdown)
-{
-	return onchange_dropdown_by_eid(dropdown, [data_rep_hist_npeak_uc], "ddl_assay_rep_hist_npeak_uc", "chkbox_new_page_npeak_uc", "embed_rep_hist_npeak_uc" );
-}
-
-function onchange_ddl_assay_rep_hist_gpeak_uc(dropdown)
-{
-    return onchange_dropdown_by_assay(dropdown, [data_rep_hist_gpeak_uc], "ddl_eid_rep_hist_gpeak_uc", "chkbox_new_page_gpeak_uc", "embed_rep_hist_gpeak_uc" );
-}
-
-function onchange_ddl_eid_rep_hist_gpeak_uc(dropdown)
-{
-    return onchange_dropdown_by_eid(dropdown, [data_rep_hist_gpeak_uc], "ddl_assay_rep_hist_gpeak_uc", "chkbox_new_page_gpeak_uc", "embed_rep_hist_gpeak_uc" );
 }
 
 /////////////////////////////// index.html (main page, grid visualization)

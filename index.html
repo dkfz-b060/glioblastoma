@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="X-Frame-Options" content="allow">
+    <!--meta http-equiv="X-Frame-Options" content="allow"-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -31,7 +31,7 @@
     <link href="./css/bootstrap-theme.min.css" rel="stylesheet">
     <link href="theme.css" rel="stylesheet">
 
-    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+    <!--script src="../../assets/js/ie-emulation-modes-warning.js"></script-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -62,6 +62,10 @@
                 <select class="ddl_assay" id="ddl_assay_rep_hist_bw" onchange="onchange_ddl_assay_rep_hist_bw(this);">
                   <option>Choose an assay</option>
                 </select>
+                or
+                <select class="ddl_assay" id="ddl_eid_rep_hist_bw2" onchange="onchange_ddl_eid_rep_hist_bw2(this);">
+                  <option>Choose a subtype</option>
+                </select>
                   <br><input type="checkbox" id="chkbox_new_page_bw"> Open in a new page (deactivate pop-up blockers)</input>
                 <br><div id=embed_rep_hist_bw style="margin:20px;border:solid 2px green;display:none;" ></div>
         	</div>
@@ -79,18 +83,18 @@
                 <br><input type="checkbox" id="chkbox_new_page_npeak"> Open in a new page (deactivate pop-up blockers)</input>
                 <br><div id=embed_rep_hist_npeak style="margin:20px;border:solid 2px green;display:none;" ></div>
         	<li>Broad peak</li>
-                  <select class="ddl_eid" id="ddl_eid_rep_hist_gpeak" onchange="onchange_ddl_eid_rep_hist_gpeak(this);">
+                  <select class="ddl_eid" id="ddl_eid_rep_hist_bpeak" onchange="onchange_ddl_eid_rep_hist_bpeak(this);">
                     <option>Choose an epigenome</option>
                   </select>
                   or
-                  <select class="ddl_assay" id="ddl_assay_rep_hist_gpeak" onchange="onchange_ddl_assay_rep_hist_gpeak(this);">
+                  <select class="ddl_assay" id="ddl_assay_rep_hist_bpeak" onchange="onchange_ddl_assay_rep_hist_bpeak(this);">
                     <option>Choose an assay</option>
                   </select>
-                  <br><input type="checkbox" id="chkbox_new_page_gpeak"> Open in a new page (deactivate pop-up blockers)</input>
-                  <br><div id=embed_rep_hist_gpeak style="margin:20px;border:solid 2px green;display:none;" ></div>
+                  <br><input type="checkbox" id="chkbox_new_page_bpeak"> Open in a new page (deactivate pop-up blockers)</input>
+                  <br><div id=embed_rep_hist_bpeak style="margin:20px;border:solid 2px green;display:none;" ></div>
                 </ul> 
 	    </div>
-          <a name="ChipSeq_DNaseSeq"></a>
+          <a name="ChromHMM"></a>
           <h1>Chromatin states</h1>
             <h3>Roadmap 18 states model</h3>
 	    <div>
@@ -103,7 +107,47 @@
                 </select>
                   <br><input type="checkbox" id="chkbox_new_page_align"> Open in a new page (deactivate pop-up blockers)</input>
                 <br><div id=embed_rep_hist_align style="margin:20px;border:solid 2px green;display:none;" ></div>
-        	</div>
+	    </div>
+          <a name="DNAmethylation"></a>
+          <h1>DNA methylation</h1>
+            <h3>Whole genome bisulfite sequencing</h3>
+	    <div>
+                <select class="ddl_eid" id="ddl_eid_rep_hist_align" onchange="onchange_ddl_eid_rep_hist_align(this);">
+                  <option>Choose an epigenome</option>
+                </select>
+                or
+                <select class="ddl_assay" id="ddl_assay_rep_hist_align" onchange="onchange_ddl_assay_rep_hist_align(this);">
+                  <option>Choose an assay</option>
+                </select>
+                  <br><input type="checkbox" id="chkbox_new_page_align"> Open in a new page (deactivate pop-up blockers)</input>
+                <br><div id=embed_rep_hist_align style="margin:20px;border:solid 2px green;display:none;" ></div>
+	    </div>
+            <h3>450K methylation array</h3>
+	    <div>
+                <select class="ddl_eid" id="ddl_eid_rep_hist_align" onchange="onchange_ddl_eid_rep_hist_align(this);">
+                  <option>Choose an epigenome</option>
+                </select>
+                or
+                <select class="ddl_assay" id="ddl_assay_rep_hist_align" onchange="onchange_ddl_assay_rep_hist_align(this);">
+                  <option>Choose an assay</option>
+                </select>
+                  <br><input type="checkbox" id="chkbox_new_page_align"> Open in a new page (deactivate pop-up blockers)</input>
+                <br><div id=embed_rep_hist_align style="margin:20px;border:solid 2px green;display:none;" ></div>
+	    </div>
+          <a name="RNAseq"></a>
+          <h1>RNA-seq</h1>
+            <h3>RPKM</h3>
+	    <div>
+                <select class="ddl_eid" id="ddl_eid_rep_hist_align" onchange="onchange_ddl_eid_rep_hist_align(this);">
+                  <option>Choose an genome</option>
+                </select>
+                or
+                <select class="ddl_assay" id="ddl_assay_rep_hist_align" onchange="onchange_ddl_assay_rep_hist_align(this);">
+                  <option>Choose an assay</option>
+                </select>
+                  <br><input type="checkbox" id="chkbox_new_page_align"> Open in a new page (deactivate pop-up blockers)</input>
+                <br><div id=embed_rep_hist_align style="margin:20px;border:solid 2px green;display:none;" ></div>
+	    </div>
               <script>
                 init_rep_hist();
               </script>
