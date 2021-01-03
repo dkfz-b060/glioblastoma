@@ -17,4 +17,5 @@ This repo contains:
 * A datahub .json file for that WashU Epigenome Browser
 * .bedfile browser tracks for: MACS2 and SES ChIPseq/ATACseq peaks; subtype superenhancers; ChromHMM; methylation features.
 
-Note all other data is hosted at the GEO: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE121723
+Note that all other processed data used in the datahub .json is hosted at the GEO: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE121723
+Raw data is available via controlled access at the EGA: https://www.ebi.ac.uk/ega/studies/EGAS00001003953
